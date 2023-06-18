@@ -4,6 +4,7 @@ import { Product } from "../../../../../types/product";
 export const runtime = "edge";
 
 export async function GET(request: Request) {
+  //get url params
   const { searchParams } = new URL(request.url);
 
   // We sometimes artificially delay a reponse for demo purposes.
@@ -15,6 +16,7 @@ export async function GET(request: Request) {
 
   const id = searchParams.get("id");
   if (id) {
+    //http://localhost:3000/test/product/get?id=1
     let product = data.find((product) => product.id === id);
 
     const fields = searchParams.get("fields");
